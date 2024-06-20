@@ -44,7 +44,6 @@ public class EnemyCombats : MonoBehaviour
 
     IEnumerator ChangedRedColor()
     {
-        yield return new WaitForSeconds(0.4f);
         renderer.material.color = Color.red;
         yield return new WaitForSeconds(0.4f);
         renderer.material.color = Color.white;

@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     private float dashStartTime;
     private float jumpCoolTime = 0f;
     public float maxJumpCoolTime = 3f;
+    private bool isSitDown = false;
 
     public Rigidbody2D rb;
     public Animator animator;
@@ -106,7 +107,14 @@ public class PlayerController : MonoBehaviour
         }
         else if (Input.GetKey(KeyCode.S))
         {
-            animator.SetTrigger("isSitDown");
+            if (isSitDown) { animator.StopPlayback(); }
+            animator.SetBool("isSitDown", true);
+            isSitDown = true;
+        }
+        else if (!Input.GetKey(KeyCode.S))
+        {
+            animator.SetBool("isSitDown", false);
+            isSitDown = false;
         }
     }
 
